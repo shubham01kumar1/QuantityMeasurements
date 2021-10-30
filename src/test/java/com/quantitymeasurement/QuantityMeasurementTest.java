@@ -26,4 +26,11 @@ public class QuantityMeasurementTest {
         Assert.assertNotEquals(feet1, feet2);
     }
 
+    @Test
+    public void Given0FeetAnd0FeetFromDiffReference_ShouldReturnFalse() {
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(0.0);
+        Assert.assertFalse(feet1==feet2);
+    }
+
 }
