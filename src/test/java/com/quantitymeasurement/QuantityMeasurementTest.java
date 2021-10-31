@@ -161,4 +161,13 @@ public class QuantityMeasurementTest {
         Inch actual = lengthConversion.yardToInch(yard);
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void Given36InchAnd1Yard_WhenInchConvertedToYard_ShouldReturnEqual() {
+        Inch inch = new Inch(36.0);
+        Yard expected = new Yard(1.0);
+        LengthConversion lengthConversion = new LengthConversion();
+        Yard actual = lengthConversion.inchToYard(inch);
+        Assert.assertEquals(expected, actual);
+    }
 }
