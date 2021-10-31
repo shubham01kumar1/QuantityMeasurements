@@ -16,5 +16,4 @@ public class Inch {
         Inch inch = (Inch) o;
         return Double.compare(inch.value, value) == 0;
     }
-
 }
