@@ -74,4 +74,11 @@ public class QuantityMeasurementTest {
         Inch inch2 = inch1;
         Assert.assertTrue(inch1 == inch2);
     }
+
+    @Test
+    public void GivenInchWithDiffType_shouldNotReturnEqual() {
+        Inch inch1 = new Inch(0.0);
+        String inch2 = "0.0";
+        Assert.assertNotEquals(inch1, inch2);
+    }
 }
