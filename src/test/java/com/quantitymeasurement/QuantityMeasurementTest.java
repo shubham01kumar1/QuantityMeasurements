@@ -90,4 +90,25 @@ public class QuantityMeasurementTest {
         Inch actual = lengthConversion.ftToInch(feet);
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void Given0YardAnd0Yard_ShouldReturnEqual() {
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = new Yard(0.0);
+        Assert.assertEquals(yard1, yard2);
+    }
+
+    @Test
+    public void Given0YardAnd1Yard_ShouldNotReturnEqual() {
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = new Yard(1.0);
+        Assert.assertNotEquals(yard1, yard2);
+    }
+
+    @Test
+    public void Given0YardAndNull_ShouldNotReturnEqual() {
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = null;
+        Assert.assertNotEquals(yard1, yard2);
+    }
 }
