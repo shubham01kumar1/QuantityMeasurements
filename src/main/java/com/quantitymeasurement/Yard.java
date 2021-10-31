@@ -17,4 +17,7 @@ public class Yard {
         return Double.compare(yard.value, value) == 0;
     }
 
+    public double getValue() {
+        return value;
+    }
 }

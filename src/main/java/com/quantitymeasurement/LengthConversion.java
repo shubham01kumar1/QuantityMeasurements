@@ -13,8 +13,13 @@ public class LengthConversion {
         return yard;
     }
 
-    public Yard InchToYard(Inch inch) {
+    public Yard inchToYard(Inch inch) {
         Yard yard = new Yard(inch.getValue()/36);
         return yard;
+    }
+
+    public Inch yardToInch(Yard yard) {
+        Inch inch = new Inch(yard.getValue()*36);
+        return inch;
     }
 }
