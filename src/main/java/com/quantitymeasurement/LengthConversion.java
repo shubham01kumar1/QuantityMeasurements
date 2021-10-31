@@ -22,4 +22,9 @@ public class LengthConversion {
         Inch inch = new Inch(yard.getValue()*36);
         return inch;
     }
+
+    public Feet yardToFeet(Yard yard) {
+        Feet feet =  new Feet(yard.getValue()*3);
+        return feet;
+    }
 }

@@ -170,4 +170,13 @@ public class QuantityMeasurementTest {
         Yard actual = lengthConversion.inchToYard(inch);
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void Given1YardAnd3Feet_WhenYardConvertedToFeet_ShouldReturnEqual() {
+        Yard yard = new Yard(1.0);
+        Feet expected = new Feet(3.0);
+        LengthConversion lengthConversion = new LengthConversion();
+        Feet actual = lengthConversion.yardToFeet(yard);
+        Assert.assertEquals(expected, actual);
+    }
 }
