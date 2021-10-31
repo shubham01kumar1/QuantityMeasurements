@@ -81,4 +81,13 @@ public class QuantityMeasurementTest {
         String inch2 = "0.0";
         Assert.assertNotEquals(inch1, inch2);
     }
+
+    @Test
+    public void Given1FeetAnd12Inch_WhenFeetConvertedToInch_ShouldReturn12Inch() {
+        Feet feet = new Feet(1.0);
+        Inch expected = new Inch(12.0);
+        LengthConversion lengthConversion = new LengthConversion();
+        Inch actual = lengthConversion.ftToInch(feet);
+        Assert.assertEquals(expected, actual);
+    }
 }

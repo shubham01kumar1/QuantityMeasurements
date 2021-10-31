@@ -17,4 +17,7 @@ public class Feet {
         return Double.compare(feet.value, value) == 0;
     }
 
+    public double getValue() {
+        return value;
+    }
 }
