@@ -60,4 +60,18 @@ public class QuantityMeasurementTest {
         Inch inch2 = null;
         Assert.assertNotEquals(inch1, inch2);
     }
+
+    @Test
+    public void GivenInchWithDiffReference_ShouldReturnFalse() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        Assert.assertFalse(inch1 == inch2);
+    }
+
+    @Test
+    public void GivenInchWithSameReference_ShouldReturnTrue() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = inch1;
+        Assert.assertTrue(inch1 == inch2);
+    }
 }
