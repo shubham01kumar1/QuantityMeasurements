@@ -111,4 +111,11 @@ public class QuantityMeasurementTest {
         Yard yard2 = null;
         Assert.assertNotEquals(yard1, yard2);
     }
+
+    @Test
+    public void GivenYardWithDiffReference_ShouldReturnFalse() {
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = new Yard(0.0);
+        Assert.assertFalse(yard1 == yard2);
+    }
 }
