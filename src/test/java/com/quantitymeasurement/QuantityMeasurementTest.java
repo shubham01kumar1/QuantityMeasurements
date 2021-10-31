@@ -118,4 +118,20 @@ public class QuantityMeasurementTest {
         Yard yard2 = new Yard(0.0);
         Assert.assertFalse(yard1 == yard2);
     }
+
+    @Test
+    public void GivenYardWithDiffType_shouldNotReturnEqual() {
+        Yard yard1 = new Yard(0.0);
+        String yard2 = "0.0";
+        Assert.assertNotEquals(yard1, yard2);
+    }
+
+    @Test
+    public void Given3FeetAnd1Yard_WhenFeetConvertedToYard_ShouldReturn1Yard() {
+        Feet feet = new Feet(3.0);
+        Yard expected = new Yard(1.0);
+        LengthConversion lengthConversion = new LengthConversion();
+        Yard actual = lengthConversion.ftToYard(feet);
+        Assert.assertEquals(expected, actual);
+    }
 }
