@@ -2,7 +2,7 @@ package com.quantitymeasurement;
 
 
 public enum UnitEnum {
-    FEET(12), YARD(36), INCH(1);
+    FEET(30.0), YARD(90.0), INCH(2.5), CENTIMETER(1);
 
     private double base;
 
@@ -10,15 +10,15 @@ public enum UnitEnum {
         this.base = base;
     }
 
-    public double getBase() {
-        return base;
-    }
-
     public static boolean compare(Length l1, Length l2) {
         double l1UnitBase = l1.getUnit().getBase();
         double l2UnitBase = l2.getUnit().getBase();
         boolean result = l1UnitBase * l1.getValue() == l2UnitBase * l2.getValue();
         return result;
+    }
+
+    public double getBase() {
+        return base;
     }
 
 }
