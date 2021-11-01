@@ -7,176 +7,169 @@ public class QuantityMeasurementTest {
 
     @Test
     public void Given0FeetAnd0Feet_ShouldReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0.0);
-        Assert.assertEquals(feet1, feet2);
+        Length l1 = new Length(UnitEnum.FEET, 0.0);
+        Length l2 = new Length(UnitEnum.FEET, 0.0);
+        Assert.assertEquals(l1, l2);
     }
 
     @Test
     public void Given0FeetAnd1Feet_ShouldNotReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(1.0);
-        Assert.assertNotEquals(feet1, feet2);
+        Length l1 = new Length(UnitEnum.FEET, 0.0);
+        Length l2 = new Length(UnitEnum.FEET, 1.0);
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void Given0FeetAndNull_ShouldNotReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = null;
-        Assert.assertNotEquals(feet1, feet2);
+        Length l1 = new Length(UnitEnum.FEET, 0.0);
+        Length l2 = null;
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void Given0FeetAnd0FeetFromDiffReference_ShouldReturnFalse() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0.0);
-        Assert.assertFalse(feet1 == feet2);
+        Length l1 = new Length(UnitEnum.FEET,0.0);
+        Length l2 = new Length(UnitEnum.FEET,0.0);
+        Assert.assertFalse(l1 == l2);
     }
 
     @Test
     public void GivenFeetWithDiffType_ShouldNotReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        String feet2 = "0.0";
-        Assert.assertNotEquals(feet1, feet2);
+        Length l1 = new Length(UnitEnum.FEET,0.0);
+        String l2 = "0.0";
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void Given0InchAnd0Inch_ShouldReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0.0);
-        Assert.assertEquals(inch1, inch2);
+        Length l1 = new Length(UnitEnum.INCH,0.0);
+        Length l2 = new Length(UnitEnum.INCH,0.0);
+        Assert.assertEquals(l1, l2);
     }
 
     @Test
     public void Given0InchAnd1Inch_ShouldNotReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(1.0);
-        Assert.assertNotEquals(inch1, inch2);
+        Length l1 = new Length(UnitEnum.INCH,0.0);
+        Length l2 = new Length(UnitEnum.INCH,1.0);
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void Given0InchAndNull_ShouldNotReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = null;
-        Assert.assertNotEquals(inch1, inch2);
+        Length l1 = new Length(UnitEnum.INCH,0.0);
+        Length l2 = null;
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void GivenInchWithDiffReference_ShouldReturnFalse() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0.0);
-        Assert.assertFalse(inch1 == inch2);
+        Length l1 = new Length(UnitEnum.INCH,0.0);
+        Length l2 = new Length(UnitEnum.INCH,0.0);
+        Assert.assertFalse(l1 == l2);
     }
 
     @Test
     public void GivenInchWithSameReference_ShouldReturnTrue() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = inch1;
-        Assert.assertTrue(inch1 == inch2);
+        Length l1 = new Length(UnitEnum.INCH,0.0);
+        Length l2 = l1;
+        Assert.assertTrue(l1 == l2);
     }
 
     @Test
     public void GivenInchWithDiffType_shouldNotReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        String inch2 = "0.0";
-        Assert.assertNotEquals(inch1, inch2);
+        Length l1 = new Length(UnitEnum.INCH,0.0);
+        String l2 = "0.0";
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
-    public void Given1FeetAnd12Inch_WhenFeetConvertedToInch_ShouldReturn12Inch() {
-        Feet feet = new Feet(1.0);
-        Inch expected = new Inch(12.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Inch actual = lengthConversion.ftToInch(feet);
-        Assert.assertEquals(expected, actual);
+    public void Given1FeetAnd12Inch_WhenFeetEqualToInch_ShouldReturnTrue() {
+        Length l1 = new Length(UnitEnum.FEET,1.0);
+        Length l2 = new Length(UnitEnum.INCH,12.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertTrue(compare);
     }
 
     @Test
     public void Given0YardAnd0Yard_ShouldReturnEqual() {
-        Yard yard1 = new Yard(0.0);
-        Yard yard2 = new Yard(0.0);
-        Assert.assertEquals(yard1, yard2);
+        Length l1 = new Length(UnitEnum.YARD, 0.0);
+        Length l2 = new Length(UnitEnum.YARD,0.0);
+        Assert.assertEquals(l1, l2);
     }
 
     @Test
     public void Given0YardAnd1Yard_ShouldNotReturnEqual() {
-        Yard yard1 = new Yard(0.0);
-        Yard yard2 = new Yard(1.0);
-        Assert.assertNotEquals(yard1, yard2);
+        Length l1 = new Length(UnitEnum.YARD, 0.0);
+        Length l2 = new Length(UnitEnum.YARD,1.0);
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void Given0YardAndNull_ShouldNotReturnEqual() {
-        Yard yard1 = new Yard(0.0);
-        Yard yard2 = null;
-        Assert.assertNotEquals(yard1, yard2);
+        Length l1 = new Length(UnitEnum.YARD, 0.0);
+        Length l2 = null;
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
     public void GivenYardWithDiffReference_ShouldReturnFalse() {
-        Yard yard1 = new Yard(0.0);
-        Yard yard2 = new Yard(0.0);
-        Assert.assertFalse(yard1 == yard2);
+        Length l1 = new Length(UnitEnum.YARD, 0.0);
+        Length l2 = new Length(UnitEnum.YARD,0.0);
+        Assert.assertFalse(l1 == l2);
     }
 
     @Test
     public void GivenYardWithDiffType_shouldNotReturnEqual() {
-        Yard yard1 = new Yard(0.0);
-        String yard2 = "0.0";
-        Assert.assertNotEquals(yard1, yard2);
+        Length l1 = new Length(UnitEnum.YARD, 0.0);
+        String l2 = "0.0";
+        Assert.assertNotEquals(l1, l2);
     }
 
     @Test
-    public void Given3FeetAnd1Yard_WhenFeetConvertedToYard_ShouldReturn1Yard() {
-        Feet feet = new Feet(3.0);
-        Yard expected = new Yard(1.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Yard actual = lengthConversion.ftToYard(feet);
-        Assert.assertEquals(expected, actual);
+    public void Given3FeetAnd1Yard_WhenFeetEqualToYard_ShouldReturnTrue() {
+        Length l1 = new Length(UnitEnum.FEET,3.0);
+        Length l2 = new Length(UnitEnum.YARD,1.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertTrue(compare);
     }
 
     @Test
-    public void Given1FeetAnd1Yard_WhenFeetConvertedToYard_ShouldNotReturnEqual() {
-        Feet feet = new Feet(1.0);
-        Yard expected = new Yard(1.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Yard actual = lengthConversion.ftToYard(feet);
-        Assert.assertNotEquals(expected, actual);
+    public void Given1FeetAnd1Yard_WhenFeetEqualToYard_ShouldReturnFalse() {
+        Length l1 = new Length(UnitEnum.FEET,1.0);
+        Length l2 = new Length(UnitEnum.YARD,1.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertFalse(compare);
     }
 
     @Test
-    public void Given1InchAnd1Yard_WhenInchConvertedToYard_ShouldNotReturnEqual() {
-        Inch inch = new Inch(1.0);
-        Yard expected = new Yard(1.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Yard actual = lengthConversion.inchToYard(inch);
-        Assert.assertNotEquals(expected, actual);
+    public void Given1InchAnd1Yard_WhenInchEqualToYard_ShouldReturnFalse() {
+        Length l1 = new Length(UnitEnum.INCH,1.0);
+        Length l2 = new Length(UnitEnum.YARD,1.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertFalse(compare);
     }
 
     @Test
-    public void Given1YardAnd36Inch_WhenYardConvertedToInch_ShouldReturnEqual() {
-        Yard yard = new Yard(1.0);
-        Inch expected = new Inch(36.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Inch actual = lengthConversion.yardToInch(yard);
-        Assert.assertEquals(expected, actual);
+    public void Given1YardAnd36Inch_WhenYardEqualToInch_ShouldReturnTrue() {
+        Length l1 = new Length(UnitEnum.YARD,1.0);
+        Length l2 = new Length(UnitEnum.INCH,36.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertTrue(compare);
     }
 
     @Test
-    public void Given36InchAnd1Yard_WhenInchConvertedToYard_ShouldReturnEqual() {
-        Inch inch = new Inch(36.0);
-        Yard expected = new Yard(1.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Yard actual = lengthConversion.inchToYard(inch);
-        Assert.assertEquals(expected, actual);
+    public void Given36InchAnd1Yard_WhenInchEqualToYard_ShouldReturnTrue() {
+        Length l1 = new Length(UnitEnum.INCH,36.0);
+        Length l2 = new Length(UnitEnum.YARD,1.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertTrue(compare);
     }
 
     @Test
-    public void Given1YardAnd3Feet_WhenYardConvertedToFeet_ShouldReturnEqual() {
-        Yard yard = new Yard(1.0);
-        Feet expected = new Feet(3.0);
-        LengthConversion lengthConversion = new LengthConversion();
-        Feet actual = lengthConversion.yardToFeet(yard);
-        Assert.assertEquals(expected, actual);
+    public void Given1YardAnd3Feet_WhenYardEqualToFeet_ShouldReturnTrue() {
+        Length l1 = new Length(UnitEnum.YARD,1.0);
+        Length l2 = new Length(UnitEnum.FEET,3.0);
+        boolean compare = UnitEnum.compare(l1, l2);
+        Assert.assertTrue(compare);
     }
 }
