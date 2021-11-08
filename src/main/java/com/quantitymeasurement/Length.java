@@ -1,56 +1,41 @@
 package com.quantitymeasurement;
 
 /**
- * purpose -  to make an entity as length of unit and value
- *
- * @author Shubham
- * @version 2.0
- * @since 31/10/2021
+ * purpose-create enum class that implements MeasurementSystem class
  */
-public class Length {
-    private final Unit unit;
-    private final double value;
+public enum Length implements MeasurementUnits {
+    YARD(36.0), FEET(12.0), INCH(1.0), CENTIMETER(0.4);
+
+    private final double conversionValue;
 
     /**
-     * purpose - parameterized constructor , to initialize passed values
+     * purpose - parameterized constructor to initialize the conversionValue
      *
-     * @param unit
-     * @param value
+     * @param conversionValue
      */
-    public Length(Unit unit, double value) {
-        this.unit = unit;
-        this.value = value;
+    private Length(double conversionValue) {
+        this.conversionValue = conversionValue;
     }
 
     /**
-     * purpose - getter, to get the stored value of unit variable
+     * Purpose : To override the convertToBaseUnit() method
      *
-     * @return unit
-     */
-    public Unit getUnit() {
-        return unit;
-    }
-
-    /**
-     * purpose - getter, to get the stored value of value variable
-     *
-     * @return value
-     */
-    public double getValue() {
-        return value;
-    }
-
-    /**
-     * purpose - to override the equals method of object class to check equality of lengths with same unit and value
-     *
-     * @param o
-     * @return boolean type
+     * @param value (double type)
+     * @return double
      */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Length length = (Length) o;
-        return Double.compare(length.value, value) == 0 && unit.equals(length.unit);
+    public double convertToBaseUnit(double value) {
+        return value * conversionValue;
     }
+
+    @Override
+    public boolean supportAddition() {
+        return true;
+    }
+
+    /**
+     * purpose - getter, to get the value stored in baseValue
+     *
+     * @return baseValue (double type)
+     */
 }
