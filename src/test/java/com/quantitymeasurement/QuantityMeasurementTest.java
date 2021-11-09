@@ -351,4 +351,28 @@ public class QuantityMeasurementTest {
         boolean result = litre.compare(gallon);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given0LitreAnd0Millilitre_WhenCompared_ShouldReturnEqualVolume() {
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        UnitMeasurementSystem millilitre = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        boolean result = litre.compare(millilitre);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given1LitreAnd1000Millilitre_WhenCompared_ShouldReturnEqualVolume() {
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        UnitMeasurementSystem millilitre = new UnitMeasurementSystem(Volume.MILLILITRE, 1000.0);
+        boolean result = litre.compare(millilitre);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given1000MillilitreAnd1Litre_WhenCompared_ShouldReturnEqualVolume() {
+        UnitMeasurementSystem millilitre = new UnitMeasurementSystem(Volume.MILLILITRE, 1000.0);
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        boolean result = millilitre.compare(litre);
+        Assert.assertTrue(result);
+    }
 }
