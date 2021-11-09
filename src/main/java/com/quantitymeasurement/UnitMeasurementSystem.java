@@ -17,7 +17,7 @@ public class UnitMeasurementSystem {
      * @param unit
      * @param value
      */
-    public UnitMeasurementSystem(Length unit, double value) {
+    public UnitMeasurementSystem(MeasurementUnits unit, double value) {
         this.unit = unit;
         this.value = value;
     }

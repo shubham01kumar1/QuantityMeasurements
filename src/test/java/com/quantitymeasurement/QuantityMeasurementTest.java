@@ -214,4 +214,19 @@ public class QuantityMeasurementTest {
         double actualResult = inch.add(centimeter);
         Assert.assertEquals(3.0, actualResult, 0);
     }
+
+    @Test
+    public void given0GallonAnd0Gallon_ShouldReturnEqual() {
+        UnitMeasurementSystem gallon1 = new UnitMeasurementSystem(Volume.GALLON, 0.0);
+        UnitMeasurementSystem gallon2 = new UnitMeasurementSystem(Volume.GALLON, 0.0);
+        Assert.assertEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void givenValue0GallonAnd1Gallon_ShouldReturnNotEqual() {
+        UnitMeasurementSystem gallon1 = new UnitMeasurementSystem(Volume.GALLON, 0.0);
+        UnitMeasurementSystem gallon2 = new UnitMeasurementSystem(Volume.GALLON, 1.0);
+        Assert.assertNotEquals(gallon1, gallon2);
+    }
+
 }

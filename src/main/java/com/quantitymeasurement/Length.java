@@ -1,7 +1,7 @@
 package com.quantitymeasurement;
 
 /**
- * purpose-create enum class that implements MeasurementSystem class
+ * purpose-create enum class that implements MeasurementUnits Interface
  */
 public enum Length implements MeasurementUnits {
     YARD(36.0), FEET(12.0), INCH(1.0), CENTIMETER(0.4);
@@ -32,10 +32,4 @@ public enum Length implements MeasurementUnits {
     public boolean supportAddition() {
         return true;
     }
-
-    /**
-     * purpose - getter, to get the value stored in baseValue
-     *
-     * @return baseValue (double type)
-     */
 }
