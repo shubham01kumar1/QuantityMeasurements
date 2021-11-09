@@ -393,4 +393,39 @@ public class QuantityMeasurementTest {
         double expected = 2.0;
         Assert.assertEquals(actualValue, expected, 0.0);
     }
+
+    @Test
+    public void given0GramAnd0Gram_ShouldReturnEqual() {
+        UnitMeasurementSystem gram1 = new UnitMeasurementSystem(Weight.GRAM, 0.0);
+        UnitMeasurementSystem gram2 = new UnitMeasurementSystem(Weight.GRAM, 0.0);
+        Assert.assertEquals(gram1, gram2);
+    }
+
+    @Test
+    public void givenValue0GramAnd1Gram_ShouldReturnNotEqual() {
+        UnitMeasurementSystem gram1 = new UnitMeasurementSystem(Weight.GRAM, 0.0);
+        UnitMeasurementSystem gram2 = new UnitMeasurementSystem(Weight.GRAM, 1.0);
+        Assert.assertNotEquals(gram1, gram2);
+    }
+
+    @Test
+    public void given0GramAndNullGram_ShouldReturnNotEqual() {
+        UnitMeasurementSystem gram1 = new UnitMeasurementSystem(Weight.GRAM, 0.0);
+        UnitMeasurementSystem gram2 = null;
+        Assert.assertNotEquals(gram1, gram2);
+    }
+
+    @Test
+    public void givenReference0GramAnd1Gram_ShouldReturnNotEqual() {
+        UnitMeasurementSystem gram1 = new UnitMeasurementSystem(Weight.GRAM, 0.0);
+        UnitMeasurementSystem gram2 = new UnitMeasurementSystem(Weight.GRAM, 1.0);
+        Assert.assertNotEquals(gram1, gram2);
+    }
+
+    @Test
+    public void givenType0GramAnd1Gram_ShouldReturnEqual() {
+        UnitMeasurementSystem gram1 = new UnitMeasurementSystem(Weight.GRAM, 0.0);
+        UnitMeasurementSystem gram2 = new UnitMeasurementSystem(Weight.GRAM, 1.0);
+        Assert.assertEquals(gram1.getClass(), gram2.getClass());
+    }
 }
