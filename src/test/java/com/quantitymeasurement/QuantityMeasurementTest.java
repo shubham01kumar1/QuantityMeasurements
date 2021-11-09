@@ -463,4 +463,39 @@ public class QuantityMeasurementTest {
         UnitMeasurementSystem kilogram2 = new UnitMeasurementSystem(Weight.KILOGRAM, 1.0);
         Assert.assertEquals(kilogram1.getClass(), kilogram2.getClass());
     }
+
+    @Test
+    public void given0TonneAnd0Tonne_ShouldReturnEqual() {
+        UnitMeasurementSystem tonne1 = new UnitMeasurementSystem(Weight.TONNE, 0.0);
+        UnitMeasurementSystem tonne2 = new UnitMeasurementSystem(Weight.TONNE, 0.0);
+        Assert.assertEquals(tonne1, tonne2);
+    }
+
+    @Test
+    public void givenValue0TonneAnd1Tonne_ShouldReturnNotEqual() {
+        UnitMeasurementSystem tonne1 = new UnitMeasurementSystem(Weight.TONNE, 0.0);
+        UnitMeasurementSystem tonne2 = new UnitMeasurementSystem(Weight.TONNE, 1.0);
+        Assert.assertNotEquals(tonne1, tonne2);
+    }
+
+    @Test
+    public void given0TonneAndNullTonne_ShouldReturnNotEqual() {
+        UnitMeasurementSystem tonne1 = new UnitMeasurementSystem(Weight.TONNE, 0.0);
+        UnitMeasurementSystem tonne2 = null;
+        Assert.assertNotEquals(tonne1, tonne2);
+    }
+
+    @Test
+    public void givenReference0TonneAnd1Tonne_ShouldReturnNotEqual() {
+        UnitMeasurementSystem tonne1 = new UnitMeasurementSystem(Weight.TONNE, 0.0);
+        UnitMeasurementSystem tonne2 = new UnitMeasurementSystem(Weight.TONNE, 1.0);
+        Assert.assertNotEquals(tonne1, tonne2);
+    }
+
+    @Test
+    public void givenType0TonneAnd1Tonne_ShouldReturnEqual() {
+        UnitMeasurementSystem tonne1 = new UnitMeasurementSystem(Weight.TONNE, 0.0);
+        UnitMeasurementSystem tonne2 = new UnitMeasurementSystem(Weight.TONNE, 1.0);
+        Assert.assertEquals(tonne1.getClass(), tonne2.getClass());
+    }
 }
