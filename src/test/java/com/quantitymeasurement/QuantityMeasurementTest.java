@@ -319,4 +319,36 @@ public class QuantityMeasurementTest {
         UnitMeasurementSystem millilitre2 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
         Assert.assertEquals(millilitre1.getClass(), millilitre2.getClass());
     }
+
+    @Test
+    public void given0GallonAnd0Litre_WhenCompared_ShouldReturnEqualVolume() {
+        UnitMeasurementSystem gallon = new UnitMeasurementSystem(Volume.GALLON, 0.0);
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        boolean result = gallon.compare(litre);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given0GallonAnd1Litre_WhenCompared_ShouldReturnNotEqualVolume() {
+        UnitMeasurementSystem gallon = new UnitMeasurementSystem(Volume.GALLON, 0.0);
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        boolean result = gallon.compare(litre);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void given1GallonAnd3Point78Litre_WhenCompared_ShouldReturnEqualVolume() {
+        UnitMeasurementSystem gallon = new UnitMeasurementSystem(Volume.GALLON, 1.0);
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 3.78);
+        boolean result = gallon.compare(litre);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given3Point78LitreAnd1Gallon_WhenCompared_ShouldReturnEqualVolume() {
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 3.78);
+        UnitMeasurementSystem gallon = new UnitMeasurementSystem(Volume.GALLON, 1.0);
+        boolean result = litre.compare(gallon);
+        Assert.assertTrue(result);
+    }
 }
