@@ -284,4 +284,39 @@ public class QuantityMeasurementTest {
         UnitMeasurementSystem litre2 = new UnitMeasurementSystem(Volume.LITRE, 1.0);
         Assert.assertEquals(litre1.getClass(), litre2.getClass());
     }
+
+    @Test
+    public void given0MillilitreAnd0Millilitre_ShouldReturnEqual() {
+        UnitMeasurementSystem millilitre1 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        UnitMeasurementSystem millilitre2 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        Assert.assertEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void givenValue0MillilitreAnd1Millilitre_ShouldReturnNotEqual() {
+        UnitMeasurementSystem millilitre1 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        UnitMeasurementSystem millilitre2 = new UnitMeasurementSystem(Volume.MILLILITRE, 1.0);
+        Assert.assertNotEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void given0MillilitreAndNullMillilitre_ShouldReturnNotEqual() {
+        UnitMeasurementSystem millilitre1 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        UnitMeasurementSystem millilitre2 = null;
+        Assert.assertNotEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void givenDifferentReference0MillilitreAnd1Millilitre_ShouldReturnNotEqual() {
+        UnitMeasurementSystem millilitre1 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        UnitMeasurementSystem millilitre2 = new UnitMeasurementSystem(Volume.MILLILITRE, 1.0);
+        Assert.assertNotEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void givenSameType0MillilitreAnd1Millilitre_ShouldReturnEqual() {
+        UnitMeasurementSystem millilitre1 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        UnitMeasurementSystem millilitre2 = new UnitMeasurementSystem(Volume.MILLILITRE, 0.0);
+        Assert.assertEquals(millilitre1.getClass(), millilitre2.getClass());
+    }
 }
