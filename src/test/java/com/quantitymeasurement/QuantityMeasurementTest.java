@@ -235,4 +235,11 @@ public class QuantityMeasurementTest {
         UnitMeasurementSystem gallon2 = null;
         Assert.assertNotEquals(gallon1, gallon2);
     }
+
+    @Test
+    public void givenReference0GallonAnd1Gallon_ShouldReturnNotEqual() {
+        UnitMeasurementSystem gallon1 = new UnitMeasurementSystem(Volume.GALLON, 0.0);
+        UnitMeasurementSystem gallon2 = new UnitMeasurementSystem(Volume.GALLON, 1.0);
+        Assert.assertNotEquals(gallon1, gallon2);
+    }
 }
