@@ -428,4 +428,39 @@ public class QuantityMeasurementTest {
         UnitMeasurementSystem gram2 = new UnitMeasurementSystem(Weight.GRAM, 1.0);
         Assert.assertEquals(gram1.getClass(), gram2.getClass());
     }
+
+    @Test
+    public void given0KilogramAnd0Kilogram_ShouldReturnEqual() {
+        UnitMeasurementSystem kilogram1 = new UnitMeasurementSystem(Weight.KILOGRAM, 0.0);
+        UnitMeasurementSystem kilogram2 = new UnitMeasurementSystem(Weight.KILOGRAM, 0.0);
+        Assert.assertEquals(kilogram1, kilogram2);
+    }
+
+    @Test
+    public void givenValue0KilogramAnd1Kilogram_ShouldReturnNotEqual() {
+        UnitMeasurementSystem kilogram1 = new UnitMeasurementSystem(Weight.KILOGRAM, 0.0);
+        UnitMeasurementSystem kilogram2 = new UnitMeasurementSystem(Weight.KILOGRAM, 1.0);
+        Assert.assertNotEquals(kilogram1, kilogram2);
+    }
+
+    @Test
+    public void given0KilogramAndNullKilogram_ShouldReturnNotEqual() {
+        UnitMeasurementSystem kilogram1 = new UnitMeasurementSystem(Weight.KILOGRAM, 0.0);
+        UnitMeasurementSystem kilogram2 = null;
+        Assert.assertNotEquals(kilogram1, kilogram2);
+    }
+
+    @Test
+    public void givenReference0KilogramAnd1Kilogram_ShouldReturnNotEqual() {
+        UnitMeasurementSystem kilogram1 = new UnitMeasurementSystem(Weight.KILOGRAM, 0.0);
+        UnitMeasurementSystem kilogram2 = new UnitMeasurementSystem(Weight.KILOGRAM, 1.0);
+        Assert.assertNotEquals(kilogram1, kilogram2);
+    }
+
+    @Test
+    public void givenType0KilogramAnd1Kilogram_ShouldReturnEqual() {
+        UnitMeasurementSystem kilogram1 = new UnitMeasurementSystem(Weight.KILOGRAM, 0.0);
+        UnitMeasurementSystem kilogram2 = new UnitMeasurementSystem(Weight.KILOGRAM, 1.0);
+        Assert.assertEquals(kilogram1.getClass(), kilogram2.getClass());
+    }
 }
