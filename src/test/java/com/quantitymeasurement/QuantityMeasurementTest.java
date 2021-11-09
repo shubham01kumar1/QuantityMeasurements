@@ -375,4 +375,22 @@ public class QuantityMeasurementTest {
         boolean result = millilitre.compare(litre);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1GallonAnd3Point78Litre_WhenAdded_ShouldReturn7Point56Litre() {
+        UnitMeasurementSystem gallon = new UnitMeasurementSystem(Volume.GALLON, 1.0);
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 3.78);
+        double actualValue = gallon.add(litre);
+        double expected = 7.56;
+        Assert.assertEquals(actualValue, expected, 0.0);
+    }
+
+    @Test
+    public void given1LitreAnd1000Millilitre_WhenAdded_ShouldReturn2Litre() {
+        UnitMeasurementSystem litre = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        UnitMeasurementSystem millilitre = new UnitMeasurementSystem(Volume.MILLILITRE, 1000.0);
+        double actualValue = litre.add(millilitre);
+        double expected = 2.0;
+        Assert.assertEquals(actualValue, expected, 0.0);
+    }
 }
