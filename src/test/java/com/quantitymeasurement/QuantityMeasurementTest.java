@@ -249,4 +249,39 @@ public class QuantityMeasurementTest {
         UnitMeasurementSystem gallon2 = new UnitMeasurementSystem(Volume.GALLON, 1.0);
         Assert.assertEquals(gallon1.getClass(), gallon2.getClass());
     }
+
+    @Test
+    public void given0LitreAnd0Litre_ShouldReturnEqual() {
+        UnitMeasurementSystem litre1 = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        UnitMeasurementSystem litre2 = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        Assert.assertEquals(litre1, litre2);
+    }
+
+    @Test
+    public void givenValue0LitreAnd1Litre_ShouldReturnNotEqual() {
+        UnitMeasurementSystem litre1 = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        UnitMeasurementSystem litre2 = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        Assert.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void given0LitreAndNullLitre_ShouldReturnNotEqual() {
+        UnitMeasurementSystem litre1 = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        UnitMeasurementSystem litre2 = null;
+        Assert.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void givenReference0LitreAnd1Litre_ShouldReturnNotEqual() {
+        UnitMeasurementSystem litre1 = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        UnitMeasurementSystem litre2 = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        Assert.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void givenType0LitreAnd1Litre_ShouldReturnEqual() {
+        UnitMeasurementSystem litre1 = new UnitMeasurementSystem(Volume.LITRE, 0.0);
+        UnitMeasurementSystem litre2 = new UnitMeasurementSystem(Volume.LITRE, 1.0);
+        Assert.assertEquals(litre1.getClass(), litre2.getClass());
+    }
 }
