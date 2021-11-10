@@ -539,4 +539,18 @@ public class QuantityMeasurementTest {
         double expectedResult = 1001.0;
         Assert.assertEquals(expectedResult, actualResult, 0.0);
     }
+
+    @Test
+    public void given212FahrenheitAnd100Celsius_ShouldReturnEqualTemperature() {
+        UnitMeasurementSystem fromFahren = new UnitMeasurementSystem(Temperature.FAHRENHEIT, 212.0);
+        UnitMeasurementSystem toCelsius = new UnitMeasurementSystem(Temperature.CELCIUS, 100.0);
+        Assert.assertTrue(fromFahren.compare(toCelsius));
+    }
+
+    @Test
+    public void given100CelsiusAnd212Fahrenheit_ShouldReturnEqualTemperature() {
+        UnitMeasurementSystem fromFahren = new UnitMeasurementSystem(Temperature.CELCIUS, 100.0);
+        UnitMeasurementSystem toCelsius = new UnitMeasurementSystem(Temperature.FAHRENHEIT, 212.0);
+        Assert.assertTrue(fromFahren.compare(toCelsius));
+    }
 }
